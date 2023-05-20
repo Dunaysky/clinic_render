@@ -1,0 +1,22 @@
+<tr>
+  <td>
+    <%= appointment.id %>
+  </td>
+  <td>
+    <%if current_profile.related_to_type == 'User'%>
+      <%= "#{appointment.doctor.profile.first_name} #{appointment.doctor.profile.last_name}"%>
+    <% else %>
+      <%= "#{appointment.user.profile.first_name} #{appointment.user.profile.last_name}"%>
+    <% end %>
+  </td>
+  <td>
+    <% if current_profile.related_to_type == 'Doctor' && appointment.recommendation.blank? %>
+      <%= form_with(url: doctor_user_path(appointment), method: :patch, local: true) do |form| %>
+        <%= form.text_area :recommendation, size: '30x5' %>
+        <%= form.submit "Send", class: 'doctors-table-button' %>
+      <% end%>
+    <% else %>
+      <%= appointment.recommendation || 'No reccomendation yet' %>
+    <% end %>
+  </td>
+</tr>

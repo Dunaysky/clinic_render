@@ -1,0 +1,12 @@
+<%= form_with(url: "/doctors", method: :get, local: true, class: 'filter-wrapper') do |form| %>
+    <%= form.collection_select(:category, Category.all, :id, :name, {include_blank: 'All'}, {class: 'filter-selection'}) %>
+    <%= form.submit "Filter", class: 'filter-button' %>
+<% end%>
+<table class="doctors-table">
+  <tr>
+    <th>Full Name</th>
+    <th>Category</th>
+    <th>Actions</th>
+  </tr>
+  <%= render partial: 'doctors/single_doctor', collection: @doctors, as: :doctor %>
+</table>

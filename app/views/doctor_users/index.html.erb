@@ -1,0 +1,23 @@
+<h2 class="doctors-table-title">Active Appointments</h2>
+<table class="doctors-table">
+  <tr>
+    <th>Number</th>
+    <th>Full Name</th>
+    <th>Recommendation</th>
+  </tr>
+  <%= render partial: 'doctor_users/single_appointment',
+      collection: @active_appointments,
+      as: :appointment %>
+</table>
+
+<h2 class="doctors-table-title">Completed Appointments</h2>
+<table class="doctors-table">
+  <tr>
+    <th>Number</th>
+    <th>Full Name</th>
+    <th>Recommendation</th>
+  </tr>
+  <%= render partial: 'doctor_users/single_appointment',
+      collection: @completed_appointments,
+      as: :appointment %>
+</table>

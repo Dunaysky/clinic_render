@@ -1,0 +1,54 @@
+<div class="authorization-wrapper">
+  <div class="authorization-form-wrapper">
+    <h2 class="authorization-title">Edit <%= resource_name.to_s.humanize %></h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :first_name, class: 'authorization-input-label' %><br />
+        <%= f.text_field :first_name, autofocus: true, class: 'authorization-input' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :last_name, class: 'authorization-input-label' %><br />
+        <%= f.text_field :last_name, autofocus: true, class: 'authorization-input' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :phone_number, class: 'authorization-input-label' %><br />
+        <%= f.text_field :phone_number, autofocus: true, class: 'authorization-input' %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :password, class: 'authorization-input-label' %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: 'authorization-input' %>
+        <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, class: 'authorization-input-label' %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'authorization-input' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password, class: 'authorization-input-label' %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password", class: 'authorization-input' %>
+      </div>
+
+      <div class="actions authorization-submit-wrapper">
+        <%= f.submit "Update", class: 'authorization-submit-button' %>
+      </div>
+    <% end %>
+
+    <%= link_to "Back", :back, class: 'authorization-input-link' %>
+  </div>
+</div>
+

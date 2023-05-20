@@ -1,0 +1,10 @@
+<div class="header-wrapper">
+  <div class="header-links-wrapper">
+    <% if current_profile.related_to_type == 'User' %>
+      <%= link_to "Doctors", doctors_path, class: 'header-link' %>
+    <% end %>
+    <%= link_to "Appointments", doctor_users_path, class: 'header-link' %>
+    <%= link_to "Profile", my_profile_profiles_path, class: 'header-link' %>
+  </div>
+  <%= button_to "Logout", destroy_profile_session_path, method: :delete, class: 'header-button' %>
+</div>

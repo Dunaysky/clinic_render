@@ -1,0 +1,19 @@
+<div class="authorization-wrapper">
+  <div class="authorization-form-wrapper">
+    <h2 class="authorization-title">Profiile</h2>
+    <div class="authorization-space-between">
+      <p class="authorization-input-label">First name: <%= " #{current_profile.first_name}"%></p>
+    </div>
+    <div class="authorization-space-between">
+      <p class="authorization-input-label">Last name: <%= " #{current_profile.last_name}"%></p>
+    </div>
+    <div class="authorization-space-between">
+      <p class="authorization-input-label">Phone number: <%= " #{current_profile.phone_number}"%></p>
+    </div>
+    <div class="authorization-space-between">
+      <p class="authorization-input-label">Registered at: <%= " #{current_profile.created_at}"%></p>
+    </div>
+    <%= link_to "Edit profile", edit_profile_registration_path, class: 'authorization-submit-button' %>
+    <%= link_to "Back", home_index_path, class: 'authorization-input-link' %>
+  </div>
+</div>

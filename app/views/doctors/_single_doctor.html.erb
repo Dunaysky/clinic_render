@@ -1,0 +1,18 @@
+<tr>
+  <td> 
+    <%= "#{doctor.profile.first_name} #{doctor.profile.last_name}"%> 
+  </td>
+  <td> 
+    <%= doctor.category.name %> 
+  </td>
+  <td>
+    <%= button_to('Make an appointment',
+        doctor_users_path,
+        class: "doctors-table-button",
+        method: :post,
+        params: {
+          user_id: current_profile.related_to_id,
+          doctor_id: doctor.id
+        })%>
+  </td>
+</tr>
