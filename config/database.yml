@@ -84,4 +84,9 @@ test:
 #
 production:
   <<: *default
-  database: clinic_manager_production
+  # database: clinic_manager_production
+  url: <%= ENV['DATABASE_URL'] %>
+  database: clinic_render_production
+  username: clinic_render
+  password: <%= ENV['MY_APP_RENDER_DATABASE_PASSWORD'] %>
+
