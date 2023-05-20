@@ -3,11 +3,14 @@ databases:
     ipAllowList: []
     databaseName: clinic_render
     user: clinic_render
+    plan: free
 
 services:
   - type: web
     name: clinic_render
     env: ruby
+    plan: free
+    branch: master
     buildCommand: "./render-build.sh"
     startCommand: "bundle exec rails s"
     envVars:
